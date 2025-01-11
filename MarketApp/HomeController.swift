@@ -7,7 +7,7 @@ class HomeController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collection: UICollectionView!
-    
+    var categories = [Category]()
     let maneger = Maneger()
     var productList = [Product]()
     var images: [String] = ["1","2","3"]
@@ -19,13 +19,15 @@ class HomeController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         confugureUI()
         startTimer()
-              maneger.decodeProductJSON { products in
-                  self.productList = products
-                  
-              }
-          }
-      
-    
+        maneger.decodeProductJSON { products in
+            self.productList = products
+            
+        }
+        maneger.decodeCategoryJSON { categories in
+            self.categories = categories
+            
+        }
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopTimer()
@@ -78,33 +80,31 @@ class HomeController: UIViewController, UIScrollViewDelegate {
         scrollView.setContentOffset(offset, animated: true)
         pageControl.currentPage = currentPage
     }
-
 }
-
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-            func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-                   return productList.count
-            }
-            func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-                cell.configure(data: productList[indexPath.row])
-                return cell
-            }
-            
-            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-               let padding: CGFloat = 3
-                let totalPadding = padding * 5
-                let individualWidth = (collectionView.frame.width - totalPadding) / 2
-                return CGSize(width: individualWidth, height: individualWidth + 80)
-            }
-            func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProductHeader", for: indexPath) as! ProductHeader
-                return header
-            }
-            
-            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-                return CGSize(width: collectionView.frame.width * 0.65, height: 320)
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        productList.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+        cell.configure(data: productList[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat = 3
+        let totalPadding = padding * 5
+        let individualWidth = (collectionView.frame.width - totalPadding) / 2
+        return CGSize(width: individualWidth, height: individualWidth + 80)
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProductHeader", for: indexPath) as! ProductHeader
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width * 0.65, height: 320)
+    }
+}
     
 

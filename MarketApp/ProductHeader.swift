@@ -11,6 +11,8 @@ class ProductHeader: UICollectionReusableView {
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    var filteredProducts = [Product]()
+    var productList = [Product]()
     let maneger = Maneger()
     var categories = [Category]()
     override func awakeFromNib() {
@@ -24,6 +26,8 @@ class ProductHeader: UICollectionReusableView {
             print(categories)
         }
     }
+
+    
 }
 
 extension ProductHeader: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -40,4 +44,9 @@ extension ProductHeader: UICollectionViewDataSource, UICollectionViewDelegate, U
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             .init(width: 180 , height: 165)
         }
-    }
+    
+        }
+    
+    
+
+    
