@@ -1,0 +1,80 @@
+[
+    {
+        "categoryId": 1,
+        "productName": "Pringles",
+        "productImage": "PringlesImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 1,
+        "productName": "Ruffles",
+        "productImage": "RufflesImage",
+        "price": 6.40,
+        "count": 1
+    },
+    {
+        "categoryId": 1,
+        "productName": "Lays Cheese",
+        "productImage": "LaysImage",
+        "price": 5.20,
+        "count": 1
+    },
+    {
+        "categoryId": 2,
+        "productName": "Rexona Pink",
+        "productImage": "rexona1",
+        "price": 7.50,
+        "count": 1
+    },
+    {
+        "categoryId": 2,
+        "productName": "Rexona Blue",
+        "productImage": "rexona2",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 3,
+        "productName": "Tanelli",
+        "productImage": "TanelliImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 3,
+        "productName": "DoyMak",
+        "productImage": "DoyMakImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 4,
+        "productName": "Tess",
+        "productImage": "TessImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 4,
+        "productName": "Berqa",
+        "productImage": "BerqaImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 5,
+        "productName": "Mercan",
+        "productImage": "MercanImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 5,
+        "productName": "Islami Kesim",
+        "productImage": "IslamiKesimImage",
+        "price": 5.50,
+        "count": 1
+    }
+]
+

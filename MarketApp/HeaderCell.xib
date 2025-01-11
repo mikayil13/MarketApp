@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderCell" id="gTV-IL-0wX" customClass="HeaderCell" customModule="MarketApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="294"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="332" height="294"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oef-ja-cEz">
+                        <rect key="frame" x="0.0" y="170" width="332" height="124"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-V8-EGS">
+                                <rect key="frame" x="12" y="97.666666666666686" width="308" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CipsImage" translatesAutoresizingMaskIntoConstraints="NO" id="Wfz-dh-Oig">
+                                <rect key="frame" x="102" y="-22.333333333333343" width="128" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Fqv-KG-CkV"/>
+                                    <constraint firstAttribute="height" constant="100" id="xcE-KN-h4D"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bc8-V8-EGS" firstAttribute="leading" secondItem="Oef-ja-cEz" secondAttribute="leading" constant="12" id="R5D-9Q-0YK"/>
+                            <constraint firstAttribute="trailing" secondItem="bc8-V8-EGS" secondAttribute="trailing" constant="12" id="c2R-Ok-slB"/>
+                            <constraint firstItem="Wfz-dh-Oig" firstAttribute="centerX" secondItem="Oef-ja-cEz" secondAttribute="centerX" id="lV3-Dc-6Q7"/>
+                            <constraint firstItem="bc8-V8-EGS" firstAttribute="top" secondItem="Wfz-dh-Oig" secondAttribute="bottom" constant="20" id="oIg-G0-bzb"/>
+                            <constraint firstAttribute="bottom" secondItem="bc8-V8-EGS" secondAttribute="bottom" constant="6" id="pWy-N7-Q6f"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Oef-ja-cEz" secondAttribute="trailing" id="Sid-lD-n6g"/>
+                <constraint firstItem="Oef-ja-cEz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="170" id="kEh-W7-z3t"/>
+                <constraint firstItem="Oef-ja-cEz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vW2-Xv-xZe"/>
+                <constraint firstAttribute="bottom" secondItem="Oef-ja-cEz" secondAttribute="bottom" id="yW0-Py-Nk8"/>
+            </constraints>
+            <size key="customSize" width="332" height="294"/>
+            <connections>
+                <outlet property="image" destination="Wfz-dh-Oig" id="60o-kt-L32"/>
+                <outlet property="label" destination="bc8-V8-EGS" id="5zA-3S-46a"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="63.380281690140848"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="CipsImage" width="128" height="197"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

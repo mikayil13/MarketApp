@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductHeader" id="U6b-Vx-4bR" customClass="ProductHeader" customModule="MarketApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="547" height="400"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bCk-iK-a4L">
+                    <rect key="frame" x="0.0" y="46" width="547" height="310"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wSr-Pm-0kg">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hg9-KH-BdO">
+                    <rect key="frame" x="20" y="0.0" width="507" height="21"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntX-49-E2u">
+                    <rect key="frame" x="20" y="379" width="507" height="21"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ntX-49-E2u" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="20" id="13j-5q-xE1"/>
+                <constraint firstItem="Hg9-KH-BdO" firstAttribute="centerX" secondItem="bCk-iK-a4L" secondAttribute="centerX" id="Ecn-oy-Q0Z"/>
+                <constraint firstAttribute="trailing" secondItem="bCk-iK-a4L" secondAttribute="trailing" id="d2D-DX-Vw0"/>
+                <constraint firstItem="Hg9-KH-BdO" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="h3t-Eq-AV4"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="bCk-iK-a4L" secondAttribute="bottom" constant="10" id="klT-Zv-GSl"/>
+                <constraint firstItem="bCk-iK-a4L" firstAttribute="top" secondItem="Hg9-KH-BdO" secondAttribute="bottom" constant="25" id="ms4-2T-CqE"/>
+                <constraint firstItem="Hg9-KH-BdO" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leadingMargin" id="o5D-9K-Kou"/>
+                <constraint firstAttribute="bottom" secondItem="ntX-49-E2u" secondAttribute="bottom" id="oqq-L1-LpG"/>
+                <constraint firstItem="bCk-iK-a4L" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="q6Z-Qm-Hui"/>
+                <constraint firstAttribute="trailing" secondItem="ntX-49-E2u" secondAttribute="trailing" constant="20" id="q9h-QE-TJQ"/>
+            </constraints>
+            <connections>
+                <outlet property="categoryLabel" destination="Hg9-KH-BdO" id="Uos-tX-mRm"/>
+                <outlet property="collection" destination="bCk-iK-a4L" id="mbD-Qb-Y7r"/>
+                <outlet property="productLabel" destination="ntX-49-E2u" id="Ydz-El-KVg"/>
+            </connections>
+            <point key="canvasLocation" x="101.5267175572519" y="19.718309859154932"/>
+        </collectionReusableView>
+    </objects>
+</document>
