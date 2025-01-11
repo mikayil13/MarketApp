@@ -65,6 +65,11 @@
                             <constraint firstItem="Snz-ty-P8w" firstAttribute="centerX" secondItem="2Fs-Xi-QSh" secondAttribute="centerX" id="phc-Fg-Izb"/>
                             <constraint firstAttribute="bottom" secondItem="9on-ck-a7e" secondAttribute="bottom" constant="23" id="yMD-Vm-WHp"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

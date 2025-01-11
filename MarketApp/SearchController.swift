@@ -18,6 +18,8 @@ class SearchController: UIViewController {
         self.title = "Search"
         collection.delegate = self
         collection.dataSource = self
+        collection.collectionViewLayout = UICollectionViewFlowLayout()
+        collection.register(UINib(nibName: "SearchHeaderCollection", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SearchHeaderCollection")
         collection.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
@@ -42,9 +44,20 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 2
-        let totalPadding = padding * 10
-        let individualWidth = (collectionView.frame.width - totalPadding) / 2
-        return CGSize(width: individualWidth, height: individualWidth + 50)
+        let padding: CGFloat = 20
+        let itemsPerRow: CGFloat = 2
+        let totalPadding = padding * (itemsPerRow + 1)
+        let individualWidth = (collectionView.frame.width - totalPadding) / itemsPerRow
+        let heightMultiplier: CGFloat = 1.5
+        return CGSize(width: individualWidth, height: individualWidth * heightMultiplier)
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchHeaderCollection", for: indexPath) as! SearchHeaderCollection
+           return header
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 150, height: 30)
     }
 }
+
+

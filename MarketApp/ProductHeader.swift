@@ -26,7 +26,10 @@ class ProductHeader: UICollectionReusableView {
             print(categories)
         }
     }
-
+    func updateCategories(categories: [Category]) {
+        self.categories = categories
+        self.collection.reloadData()
+    }
     
 }
 
@@ -45,8 +48,6 @@ extension ProductHeader: UICollectionViewDataSource, UICollectionViewDelegate, U
             .init(width: 180 , height: 165)
         }
     
-        }
     
-    
-
+}
     
