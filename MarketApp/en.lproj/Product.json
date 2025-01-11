@@ -21,6 +21,20 @@
         "count": 1
     },
     {
+        "categoryId": 1,
+        "productName": "Doritos Mix",
+        "productImage": "DoritosImage",
+        "price": 5.20,
+        "count": 1
+    },
+    {
+        "categoryId": 1,
+        "productName": "Cerezza",
+        "productImage": "CerezzaImage",
+        "price": 5.20,
+        "count": 1
+    },
+    {
         "categoryId": 2,
         "productName": "Rexona Pink",
         "productImage": "rexona1",
@@ -29,8 +43,29 @@
     },
     {
         "categoryId": 2,
-        "productName": "Rexona Blue",
+        "productName": "Rexona Navy Blue",
         "productImage": "rexona2",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 2,
+        "productName": "Rexona Blue",
+        "productImage": "rexona3",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 2,
+        "productName": "Rexona Green",
+        "productImage": "rexona4",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 2,
+        "productName": "Rexona Yellow",
+        "productImage": "rexona5",
         "price": 5.50,
         "count": 1
     },
@@ -49,6 +84,27 @@
         "count": 1
     },
     {
+        "categoryId": 3,
+        "productName": "Harika",
+        "productImage": "HarikaImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 3,
+        "productName": "Barillla",
+        "productImage": "BarilllaImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 3,
+        "productName": "Saville ",
+        "productImage": "SavilleImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
         "categoryId": 4,
         "productName": "Tess",
         "productImage": "TessImage",
@@ -63,9 +119,51 @@
         "count": 1
     },
     {
+        "categoryId": 4,
+        "productName": "Champion",
+        "productImage": "ChampionImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 4,
+        "productName": "FinalI Tea",
+        "productImage": "FinalImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 4,
+        "productName": "Ahmad Tea",
+        "productImage": "AhmadImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
         "categoryId": 5,
         "productName": "Mercan",
         "productImage": "MercanImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 5,
+        "productName": "Qidam Toyuq",
+        "productImage": "QidamImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 5,
+        "productName": "Seba",
+        "productImage": "SebaToyuqImage",
+        "price": 5.50,
+        "count": 1
+    },
+    {
+        "categoryId": 5,
+        "productName": "Seba Toyuq",
+        "productImage": "Seba2Image",
         "price": 5.50,
         "count": 1
     },
