@@ -271,7 +271,7 @@
                                         <rect key="frame" x="0.0" y="-50" width="393" height="695"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SKQ-3G-Fpm">
-                                                <rect key="frame" x="8" y="56" width="385" height="602"/>
+                                                <rect key="frame" x="0.0" y="101" width="393" height="557"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AYq-L5-iXA">

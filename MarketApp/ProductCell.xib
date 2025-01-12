@@ -82,6 +82,7 @@
             </constraints>
             <size key="customSize" width="350" height="301"/>
             <connections>
+                <outlet property="containerView" destination="2Fs-Xi-QSh" id="bPN-Md-fj1"/>
                 <outlet property="image" destination="Snz-ty-P8w" id="FHR-Rm-ve5"/>
                 <outlet property="name" destination="gri-xT-XCE" id="QE9-SW-iSD"/>
                 <outlet property="price" destination="oUI-6w-cDc" id="HAY-KN-7sv"/>

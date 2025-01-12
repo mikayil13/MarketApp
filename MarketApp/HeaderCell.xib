@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oef-ja-cEz">
-                        <rect key="frame" x="0.0" y="170" width="332" height="124"/>
+                        <rect key="frame" x="0.0" y="156" width="332" height="138"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc8-V8-EGS">
-                                <rect key="frame" x="12" y="97.666666666666686" width="308" height="20.333333333333329"/>
+                                <rect key="frame" x="12" y="97.666666666666657" width="308" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                             <constraint firstAttribute="trailing" secondItem="bc8-V8-EGS" secondAttribute="trailing" constant="12" id="c2R-Ok-slB"/>
                             <constraint firstItem="Wfz-dh-Oig" firstAttribute="centerX" secondItem="Oef-ja-cEz" secondAttribute="centerX" id="lV3-Dc-6Q7"/>
                             <constraint firstItem="bc8-V8-EGS" firstAttribute="top" secondItem="Wfz-dh-Oig" secondAttribute="bottom" constant="20" id="oIg-G0-bzb"/>
-                            <constraint firstAttribute="bottom" secondItem="bc8-V8-EGS" secondAttribute="bottom" constant="6" id="pWy-N7-Q6f"/>
+                            <constraint firstAttribute="bottom" secondItem="bc8-V8-EGS" secondAttribute="bottom" constant="19.999999999999986" id="pWy-N7-Q6f"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -48,12 +48,13 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Oef-ja-cEz" secondAttribute="trailing" id="Sid-lD-n6g"/>
-                <constraint firstItem="Oef-ja-cEz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="170" id="kEh-W7-z3t"/>
+                <constraint firstItem="Oef-ja-cEz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="156" id="kEh-W7-z3t"/>
                 <constraint firstItem="Oef-ja-cEz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vW2-Xv-xZe"/>
                 <constraint firstAttribute="bottom" secondItem="Oef-ja-cEz" secondAttribute="bottom" id="yW0-Py-Nk8"/>
             </constraints>
             <size key="customSize" width="332" height="294"/>
             <connections>
+                <outlet property="containerView" destination="Oef-ja-cEz" id="e8K-O0-SNF"/>
                 <outlet property="image" destination="Wfz-dh-Oig" id="60o-kt-L32"/>
                 <outlet property="label" destination="bc8-V8-EGS" id="5zA-3S-46a"/>
             </connections>

@@ -15,7 +15,7 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
     var frame = CGRect()
     var timer: Timer?
     var currentPage = 0
-    
+    var selectedIndexPath: IndexPath?
     override func viewDidLoad() {
         super.viewDidLoad()
         confugureUI()
@@ -54,13 +54,10 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
     }
     func filterProductsByCategory() {
         guard let category = selectedCategory else {
-            // Əgər heç bir kateqoriya seçilməyibsə, bütün məhsulları göstər
             filteredProducts = productList
             collection.reloadData()
             return
         }
-        
-        // Məhsulları kateqoriyaya görə filtr et
         filteredProducts = productList.filter { $0.categoryId == category.id }
         collection.reloadData()
     }
@@ -95,9 +92,8 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
         pageControl.currentPage = currentPage
     }
     func didSelectCategory(_ category: Category) {
-           // Seçilmiş kateqoriyaya uyğun məhsulları filtr edin
            filteredProducts = productList.filter { $0.categoryId == category.id }
-           collection.reloadData()  // CollectionView-i yeniləyin
+           collection.reloadData()
        }
    }
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -107,6 +103,11 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         cell.configure(data: filteredProducts[indexPath.row])
+        if indexPath == selectedIndexPath {
+            cell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        } else {
+            cell.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
         return cell
     }
     
@@ -124,5 +125,9 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.65, height: 320)
         
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        collectionView.reloadData()
     }
 }

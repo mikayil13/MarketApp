@@ -11,7 +11,7 @@ class SearchController: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
     let maneger = Maneger()
     var productList = [Product]()
-
+    var filteredProducts = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +26,34 @@ class SearchController: UIViewController {
         self.navigationItem.searchController = search
         maneger.decodeProductJSON { products in
             self.productList = products
-            
+            self.filteredProducts = products
+            self.collection.reloadData()
         }
     }
 }
 extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
-        
-    }
+        guard let searchText = searchController.searchBar.text?.lowercased(), !searchText.isEmpty else {
+              filteredProducts = productList
+               collection.reloadData()
+                return
+                }
+                filteredProducts = productList.filter { product in
+                    return product.productName.lowercased().contains(searchText)
+                }
+                 collection.reloadData()
+            }
+
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        productList.count
+        return filteredProducts.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        cell.configure(data: productList[indexPath.row])
+        let product = filteredProducts[indexPath.row]
+               cell.configure(data: product)
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 20
         let itemsPerRow: CGFloat = 2

@@ -10,11 +10,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHeaderCollection" id="U6b-Vx-4bR" customClass="SearchHeaderCollection" customModule="MarketApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="387" height="123"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cT7-0e-IbX">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="387" height="123"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="l5q-2z-GKB">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -26,15 +26,15 @@
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="cT7-0e-IbX" secondAttribute="trailing" id="1OJ-l1-bFE"/>
-                <constraint firstAttribute="bottom" secondItem="cT7-0e-IbX" secondAttribute="bottom" id="2Bj-d7-0uW"/>
-                <constraint firstItem="cT7-0e-IbX" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="K70-zS-FYb"/>
-                <constraint firstItem="cT7-0e-IbX" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="zLc-Fd-2yB"/>
+                <constraint firstItem="cT7-0e-IbX" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="J1Z-Fd-h91"/>
+                <constraint firstItem="cT7-0e-IbX" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="Q3u-bB-zRe"/>
+                <constraint firstItem="cT7-0e-IbX" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="QsX-lL-Ffo"/>
+                <constraint firstItem="cT7-0e-IbX" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="rog-p1-ict"/>
             </constraints>
             <connections>
                 <outlet property="collection" destination="cT7-0e-IbX" id="WDw-83-1z9"/>
             </connections>
-            <point key="canvasLocation" x="100.76335877862596" y="5.6338028169014089"/>
+            <point key="canvasLocation" x="151.90839694656489" y="-20.070422535211268"/>
         </collectionReusableView>
     </objects>
 </document>
