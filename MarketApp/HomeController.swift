@@ -2,14 +2,15 @@
 
 import UIKit
 
-class HomeController: UIViewController, UIScrollViewDelegate {
-    
+class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collection: UICollectionView!
     var categories = [Category]()
     let maneger = Maneger()
     var productList = [Product]()
+    var filteredProducts = [Product]()
+    var selectedCategory: Category?
     var images: [String] = ["1","2","3"]
     var frame = CGRect()
     var timer: Timer?
@@ -21,7 +22,8 @@ class HomeController: UIViewController, UIScrollViewDelegate {
         startTimer()
         maneger.decodeProductJSON { products in
             self.productList = products
-            
+            self.filteredProducts = products
+            self.collection.reloadData()
         }
         maneger.decodeCategoryJSON { categories in
             self.categories = categories
@@ -49,6 +51,18 @@ class HomeController: UIViewController, UIScrollViewDelegate {
         }
         scrollView.contentSize = CGSize(width: scrollView.frame.width * CGFloat(images.count), height: scrollView.frame.height)
         scrollView.delegate = self
+    }
+    func filterProductsByCategory() {
+        guard let category = selectedCategory else {
+            // Əgər heç bir kateqoriya seçilməyibsə, bütün məhsulları göstər
+            filteredProducts = productList
+            collection.reloadData()
+            return
+        }
+        
+        // Məhsulları kateqoriyaya görə filtr et
+        filteredProducts = productList.filter { $0.categoryId == category.id }
+        collection.reloadData()
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -80,14 +94,19 @@ class HomeController: UIViewController, UIScrollViewDelegate {
         scrollView.setContentOffset(offset, animated: true)
         pageControl.currentPage = currentPage
     }
-}
+    func didSelectCategory(_ category: Category) {
+           // Seçilmiş kateqoriyaya uyğun məhsulları filtr edin
+           filteredProducts = productList.filter { $0.categoryId == category.id }
+           collection.reloadData()  // CollectionView-i yeniləyin
+       }
+   }
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        productList.count
+        return filteredProducts.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-        cell.configure(data: productList[indexPath.row])
+        cell.configure(data: filteredProducts[indexPath.row])
         return cell
     }
     
@@ -99,12 +118,11 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProductHeader", for: indexPath) as! ProductHeader
+        header.delegate = self
         return header
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.65, height: 320)
+        
     }
 }
-    
-

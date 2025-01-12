@@ -6,8 +6,11 @@
 //
 
 import UIKit
-
+protocol ProductHeaderDelegate: AnyObject {
+    func didSelectCategory(_ category: Category)
+}
 class ProductHeader: UICollectionReusableView {
+    weak var delegate: ProductHeaderDelegate?
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -29,9 +32,11 @@ class ProductHeader: UICollectionReusableView {
     func updateCategories(categories: [Category]) {
         self.categories = categories
         self.collection.reloadData()
-    }
-    
-}
+       
+               }
+           }
+       
+
 
 extension ProductHeader: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,7 +48,10 @@ extension ProductHeader: UICollectionViewDataSource, UICollectionViewDelegate, U
             cell.configure(data: categories[indexPath.row])
             return cell
         }
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           let selectedCategory = categories[indexPath.row]
+        delegate?.didSelectCategory(selectedCategory)
+       }
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             .init(width: 180 , height: 165)
         }
