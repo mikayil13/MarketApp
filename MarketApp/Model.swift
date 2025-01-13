@@ -8,15 +8,16 @@
 import Foundation
 
 struct Category: Codable,Equatable {
-    let id: Int
-    let categoryName: String
-    let categoryImage: String
+    var id: Int?
+    var categoryName: String?
+    var categoryImage: String?
 }
 
 struct Product: Codable {
-    let categoryId: Int
-    let productName: String
-    let productImage: String
-    let price: Double
-    let count: Int
+    var categoryId: Int?
+    var productName: String?
+    var productImage: String?
+    var price: Double?
+    var count: Int
+    var quantity: Int?
 }

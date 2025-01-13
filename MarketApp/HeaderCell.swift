@@ -26,7 +26,7 @@ class HeaderCell: UICollectionViewCell {
  
         func configure(data: Category) {
             label.text = data.categoryName
-            image.image = UIImage(named: data.categoryImage)
+            image.image = UIImage(named: data.categoryImage!)
             
         }
     }

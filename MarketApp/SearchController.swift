@@ -39,7 +39,7 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
                 return
                 }
                 filteredProducts = productList.filter { product in
-                    return product.productName.lowercased().contains(searchText)
+                    return product.productName!.lowercased().contains(searchText)
                 }
                  collection.reloadData()
             }
