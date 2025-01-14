@@ -41,7 +41,7 @@ extension SearchHeaderCollection: UICollectionViewDataSource, UICollectionViewDe
         }
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            .init(width: 100 , height: 100)
+            .init(width: 120 , height: 40)
         }
     
         }

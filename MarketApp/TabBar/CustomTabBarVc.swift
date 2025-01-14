@@ -12,7 +12,7 @@ class CustomTabBarVc: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        self.selectedIndex = 2
+        self.selectedIndex = 0
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

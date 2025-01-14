@@ -55,18 +55,18 @@ extension ProductHeader: UICollectionViewDataSource, UICollectionViewDelegate, U
             cell.isSelectedCategory = false
         }
         if indexPath == selectedIndexPath {
-            cell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3) // Hüceyrəni böyüt
+            cell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         } else {
-            cell.transform = CGAffineTransform(scaleX: 1.0, y: 1.0) // Hüceyrəni normal ölçüdə saxla
+            cell.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCategory = categories[indexPath.row]
         delegate?.didSelectCategory(selectedCategory)
-        self.selectedCategory = selectedCategory  // Seçimi qeyd et// UI-ni yenilə
-        selectedIndexPath = indexPath // Seçilmiş hüceyrənin indexini saxlayırıq
-        collectionView.reloadData() //
+        self.selectedCategory = selectedCategory
+        selectedIndexPath = indexPath //
+        collectionView.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         .init(width: 180 , height: 165)

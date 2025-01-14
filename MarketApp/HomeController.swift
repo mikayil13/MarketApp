@@ -112,10 +112,10 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 3
-        let totalPadding = padding * 5
+        let padding: CGFloat = 2
+        let totalPadding = padding * 10
         let individualWidth = (collectionView.frame.width - totalPadding) / 2
-        return CGSize(width: individualWidth, height: individualWidth + 80)
+        return CGSize(width: individualWidth, height: individualWidth + 150)
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProductHeader", for: indexPath) as! ProductHeader

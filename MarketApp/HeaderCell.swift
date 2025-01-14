@@ -15,13 +15,13 @@ class HeaderCell: UICollectionViewCell {
     
     var isSelectedCategory: Bool = false {
             didSet {
-                containerView.backgroundColor = isSelectedCategory ? .black : .clear
+            containerView.backgroundColor = isSelectedCategory ? .black : .clear
             }
         }
-    override func awakeFromNib() {
+        override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10
-               self.layer.masksToBounds = true
+        self.layer.masksToBounds = true
     }
  
         func configure(data: Category) {

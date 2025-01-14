@@ -1,28 +1,28 @@
 [
     {
-        "id": 1,
-        "categoryName": "Cips",
-        "categoryImage": "CipsImage"
+     "id": 1,
+     "categoryName": "Cips",
+     "categoryImage": "CipsImage"
     },
     {
-        "id": 2,
-        "categoryName": "Rexona",
-        "categoryImage": "RexonaImage"
+     "id": 2,
+     "categoryName": "Rexona",
+     "categoryImage": "RexonaImage"
     },
     {
-        "id": 3,
-        "categoryName": "Makaron",
-        "categoryImage": "MakaronImage"
+     "id": 3,
+     "categoryName": "Makaron",
+     "categoryImage": "MakaronImage"
     },
     {
-        "id": 4,
-        "categoryName": "Tea",
-        "categoryImage": "BerqaImage"
+     "id": 4,
+     "categoryName": "Tea",
+     "categoryImage": "BerqaImage"
     },
     {
-        "id": 5,
-        "categoryName": "Toyuq",
-        "categoryImage": "MercanImage"
+     "id": 5,
+     "categoryName": "Toyuq",
+     "categoryImage": "MercanImage"
     }
 ]
 

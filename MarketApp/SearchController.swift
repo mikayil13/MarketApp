@@ -55,19 +55,17 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 20
-        let itemsPerRow: CGFloat = 2
-        let totalPadding = padding * (itemsPerRow + 1)
-        let individualWidth = (collectionView.frame.width - totalPadding) / itemsPerRow
-        let heightMultiplier: CGFloat = 1.5
-        return CGSize(width: individualWidth, height: individualWidth * heightMultiplier)
+        let padding: CGFloat = 2
+        let totalPadding = padding * 30
+        let individualWidth = (collectionView.frame.width - totalPadding) / 2
+        return CGSize(width: individualWidth, height: individualWidth + 150)
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SearchHeaderCollection", for: indexPath) as! SearchHeaderCollection
            return header
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 150, height: 30)
+        return CGSize(width: 300, height: 50)
     }
 }
 

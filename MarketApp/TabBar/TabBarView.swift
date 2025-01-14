@@ -15,7 +15,7 @@ class TabBarView: UITabBar {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        centeredWith = self.bounds.width / 2
+        centeredWith = self.bounds.width / 0
         self.unselectedItemTintColor = .black
         self.tintColor = .black
         self.addShape()

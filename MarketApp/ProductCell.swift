@@ -46,7 +46,7 @@ class ProductCell: UICollectionViewCell {
         if let addButton = sender as? UIButton {
             UIView.animate(withDuration: 0.1) {
                 addButton.setTitle("Added", for: .normal)
-                addButton.backgroundColor = .gray 
+                addButton.backgroundColor = .gray
                 addButton.isEnabled = false
             }
         }
