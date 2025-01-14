@@ -14,16 +14,18 @@ class BasketController: UIViewController {
     let basketViewModel = BasketViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        getup()
+    }
+    @IBAction func Confirm(_ sender: Any) {
+    }
+    
+    func getup() {
         title = "Basket"
         table.delegate = self
         table.dataSource = self
         table.register(UINib(nibName: "BasketCell", bundle: nil), forCellReuseIdentifier: "BasketCell")
         basketViewModel.readData(totalPrice: totalPrice)
     }
-    @IBAction func Confirm(_ sender: Any) {
-    }
-    
-
     
 }
 extension BasketController: UITableViewDataSource, UITableViewDelegate,BasketCellDelegate{

@@ -65,7 +65,7 @@ extension ProductHeader: UICollectionViewDataSource, UICollectionViewDelegate, U
         let selectedCategory = categories[indexPath.row]
         delegate?.didSelectCategory(selectedCategory)
         self.selectedCategory = selectedCategory
-        selectedIndexPath = indexPath //
+        selectedIndexPath = indexPath
         collectionView.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

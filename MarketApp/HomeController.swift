@@ -82,7 +82,7 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
             currentPage = 0
         }
         
-        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
             let pageNumber = scrollView.contentOffset.x / scrollView.frame.width
             pageControl.currentPage = Int(pageNumber)
             currentPage = pageControl.currentPage
