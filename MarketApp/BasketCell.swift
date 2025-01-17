@@ -23,7 +23,7 @@ class BasketCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         stepper.addTarget(self, action: #selector(updateValue), for: .valueChanged)
-          stepper.minimumValue = 1
+          stepper.minimumValue = 0
           stepper.maximumValue = 99
       }
     
@@ -48,6 +48,7 @@ class BasketCell: UITableViewCell {
         productPrice.text = String(format: "$%.2f", (product.price!) * Double(newQuantity))
         delegate?.didUpdateQuantity(product: product, newQuantity: newQuantity)
            }
+    
        }
   
         

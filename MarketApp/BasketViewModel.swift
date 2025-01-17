@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 class BasketViewModel {
-    var basketProducts = [Product]()
+    var basketProducts: [Product] = []
     private let adapter = FileAdapter()
     func addFoodToBasket(product: Product) {
         if let index = basketProducts.firstIndex(where: { $0.categoryId == product.categoryId }) {

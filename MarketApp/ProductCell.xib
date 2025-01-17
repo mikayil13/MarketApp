@@ -49,7 +49,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Add"/>
                                         <connections>
-                                            <action selector="addButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="GRX-IQ-OPC"/>
+                                            <action selector="addbutton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="BG8-bf-Elh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -67,7 +67,6 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="432" height="409"/>
             <connections>
-                <outlet property="add" destination="VKe-OP-yyQ" id="yDz-hq-p4p"/>
                 <outlet property="containerView" destination="2Fs-Xi-QSh" id="bPN-Md-fj1"/>
                 <outlet property="image" destination="lXQ-dd-ah7" id="beG-XK-Y78"/>
                 <outlet property="name" destination="fav-bQ-O1f" id="IMA-3E-1kR"/>

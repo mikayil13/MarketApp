@@ -12,6 +12,8 @@ class SearchController: UIViewController {
     let maneger = Maneger()
     var productList = [Product]()
     var filteredProducts = [Product]()
+    let manager = FileAdapter()
+    var basketItems = [Product]()
     var selectedCategory: Category?
     var selectedIndexPath: IndexPath?
     var categories = [Category]()
@@ -49,10 +51,16 @@ class SearchController: UIViewController {
            self.selectedCategory = category
            filterProductsByCategory()
        }
-   }
-
-
-extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchResultsUpdating,SearchHeaderCollectionDelegate{
+    func addToBasket(index: Int) {
+        let selectedProduct = filteredProducts[index]
+        manager.readData { basketItems in
+            self.basketItems = basketItems ?? []
+            self.basketItems.append(selectedProduct)
+            self.manager.writeData(items: self.basketItems)
+        }
+    }
+}
+extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchResultsUpdating,SearchHeaderCollectionDelegate,ProductCellDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text?.lowercased(), !searchText.isEmpty else {
             filteredProducts = productList
@@ -73,6 +81,8 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         let product = filteredProducts[indexPath.row]
         cell.configure(data: product)
+        self.addToBasket(index: indexPath.item)
+        cell.delegate = self
         return cell
     }
     
@@ -90,8 +100,14 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: 250, height: 60)
     }
-    
+    func didAddToBasket(product: Product) {
+        if let index = filteredProducts.firstIndex(where: { $0.categoryId == product.categoryId }) {
+            addToBasket(index: index)
+        }
+    }
 }
+
+
 
 
 

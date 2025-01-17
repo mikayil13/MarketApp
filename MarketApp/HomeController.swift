@@ -7,9 +7,12 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collection: UICollectionView!
     var categories = [Category]()
+    let manager = FileAdapter()
     let maneger = Maneger()
     var productList = [Product]()
+    var basketItems = [Product]()
     var filteredProducts = [Product]()
+    var selectedProduct: Product?
     var selectedCategory: Category?
     var images: [String] = ["1","2","3"]
     var frame = CGRect()
@@ -82,7 +85,7 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
             currentPage = 0
         }
         
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
             let pageNumber = scrollView.contentOffset.x / scrollView.frame.width
             pageControl.currentPage = Int(pageNumber)
             currentPage = pageControl.currentPage
@@ -92,22 +95,32 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
         pageControl.currentPage = currentPage
     }
     func didSelectCategory(_ category: Category) {
-           filteredProducts = productList.filter { $0.categoryId == category.id }
-           collection.reloadData()
-       }
-   }
-extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+        filteredProducts = productList.filter { $0.categoryId == category.id }
+        collection.reloadData()
+    }
+    func addToBasket(index: Int) {
+        let selectedProduct = filteredProducts[index]
+        manager.readData { basketItems in
+            self.basketItems = basketItems ?? []
+            self.basketItems.append(selectedProduct)
+            self.manager.writeData(items: self.basketItems)
+        }
+    }
+}
+extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,ProductCellDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return filteredProducts.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         cell.configure(data: filteredProducts[indexPath.row])
+        self.addToBasket(index: indexPath.item)
         if indexPath == selectedIndexPath {
-            cell.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            cell.transform = CGAffineTransform(scaleX: 1.08, y: 1.08)
         } else {
             cell.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
+        cell.delegate = self
         return cell
     }
     
@@ -129,5 +142,10 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         collectionView.reloadData()
+    }
+    func didAddToBasket(product: Product) {
+        if let index = filteredProducts.firstIndex(where: { $0.categoryId == product.categoryId }) {
+            addToBasket(index: index)
+        }
     }
 }
