@@ -14,8 +14,8 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var price: UILabel!
-    
     @IBOutlet weak var containerView: UIView!
+    var plusActionHandler: (() -> Void)?
     var delegate: ProductCellDelegate?
     var product: Product?
     
@@ -34,9 +34,14 @@ class ProductCell: UICollectionViewCell {
     }
     
     @IBAction func addbutton(_ sender: Any) {
-        guard let product = product else { return }
-           delegate?.didAddToBasket(product: product)
- }
-}
-
+        guard product != nil else { return }
+        delegate?.didAddToBasket(product: self.product!)
+//        if let addButton = sender as? UIButton {
+//            UIView.animate(withDuration: 0.1) {
+//                addButton.setTitle("Added", for: .normal)
+//                addButton.backgroundColor = .gray
+//                addButton.isEnabled = false
+            }
+        }
+    
 

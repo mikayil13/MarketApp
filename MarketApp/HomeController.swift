@@ -38,6 +38,7 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
         stopTimer()
     }
     func confugureUI() {
+        title = "Home"
         collection.delegate = self
         collection.dataSource = self
         collection.collectionViewLayout = UICollectionViewFlowLayout()
@@ -99,7 +100,10 @@ class HomeController: UIViewController, UIScrollViewDelegate,ProductHeaderDelega
         collection.reloadData()
     }
     func addToBasket(index: Int) {
-        let selectedProduct = filteredProducts[index]
+        guard index >= 0 && index < productList.count else {
+            return
+        }
+        let selectedProduct = productList[index]
         manager.readData { basketItems in
             self.basketItems = basketItems ?? []
             self.basketItems.append(selectedProduct)
@@ -113,17 +117,15 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+        cell.delegate = self
         cell.configure(data: filteredProducts[indexPath.row])
-        self.addToBasket(index: indexPath.item)
         if indexPath == selectedIndexPath {
             cell.transform = CGAffineTransform(scaleX: 1.08, y: 1.08)
         } else {
             cell.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
-        cell.delegate = self
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 2
         let totalPadding = padding * 10
@@ -137,15 +139,17 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.65, height: 320)
-        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         collectionView.reloadData()
     }
     func didAddToBasket(product: Product) {
-        if let index = filteredProducts.firstIndex(where: { $0.categoryId == product.categoryId }) {
+        if let index = productList.firstIndex(where: { $0.productName == product.productName }) {
             addToBasket(index: index)
+        } else {
+            print("Xəta: Məhsul tapılmadı: \(product.productName!)")
         }
     }
 }
+

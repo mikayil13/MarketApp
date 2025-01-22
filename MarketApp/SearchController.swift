@@ -52,7 +52,10 @@ class SearchController: UIViewController {
            filterProductsByCategory()
        }
     func addToBasket(index: Int) {
-        let selectedProduct = filteredProducts[index]
+        guard index >= 0 && index < productList.count else {
+            return
+        }
+        let selectedProduct = productList[index]
         manager.readData { basketItems in
             self.basketItems = basketItems ?? []
             self.basketItems.append(selectedProduct)
@@ -85,7 +88,6 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         cell.delegate = self
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 2
         let totalPadding = padding * 30
@@ -101,11 +103,14 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         return CGSize(width: 250, height: 60)
     }
     func didAddToBasket(product: Product) {
-        if let index = filteredProducts.firstIndex(where: { $0.categoryId == product.categoryId }) {
+        if let index = productList.firstIndex(where: { $0.productName == product.productName }) {
             addToBasket(index: index)
+        } else {
+            print("Xəta: Məhsul tapılmadı: \(product.productName!)")
         }
     }
 }
+
 
 
 

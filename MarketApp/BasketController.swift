@@ -12,15 +12,20 @@ class BasketController: UIViewController {
     @IBOutlet weak var totalPrice: UILabel!
     weak var delegate: BasketCellDelegate?
     let basketViewModel = BasketViewModel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getup()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getup()
         table.reloadData()
     }
+    
     @IBAction func Confirm(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(identifier: "CardDetailsViewController") as! CardDetailsViewController
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func getup() {
@@ -54,7 +59,7 @@ extension BasketController: UITableViewDataSource, UITableViewDelegate,BasketCel
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    func didUpdateQuantity(product: Product, newQuantity quantity: Int) {
+    func didUpdateQuantity(product: Product, quantity: Int) {
         if let index = basketViewModel.basketProducts.firstIndex(where: { $0.categoryId == product.categoryId }) {
             if quantity == 0 {
                 basketViewModel.basketProducts.remove(at: index)

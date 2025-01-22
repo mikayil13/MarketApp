@@ -10,7 +10,7 @@ import UIKit
 class BasketViewModel {
     var basketProducts: [Product] = []
     private let adapter = FileAdapter()
-    func addFoodToBasket(product: Product) {
+    func addProductToBasket(product: Product) {
         if let index = basketProducts.firstIndex(where: { $0.categoryId == product.categoryId }) {
             basketProducts[index].count += product.count
         } else {

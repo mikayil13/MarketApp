@@ -7,7 +7,7 @@
 
 import UIKit
 protocol BasketCellDelegate: AnyObject {
-    func didUpdateQuantity(product: Product, newQuantity: Int)
+    func didUpdateQuantity(product: Product, quantity: Int)
 }
 
 
@@ -22,9 +22,10 @@ class BasketCell: UITableViewCell {
         weak var delegate: BasketCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        stepper.addTarget(self, action: #selector(updateValue), for: .valueChanged)
-          stepper.minimumValue = 0
-          stepper.maximumValue = 99
+        stepper.value = 1
+        stepper.stepValue = 1
+        stepper.minimumValue = 0
+        stepper.addTarget(self, action: #selector (updateValue), for: .valueChanged)
       }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,7 +47,7 @@ class BasketCell: UITableViewCell {
         let newQuantity = Int(sender.value)
         count.text = "\(newQuantity)"
         productPrice.text = String(format: "$%.2f", (product.price!) * Double(newQuantity))
-        delegate?.didUpdateQuantity(product: product, newQuantity: newQuantity)
+        delegate?.didUpdateQuantity(product: product, quantity: newQuantity)
            }
     
        }

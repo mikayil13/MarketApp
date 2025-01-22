@@ -29,6 +29,7 @@ class FileAdapter{
             completion(nil)
         }
     }
+    
     func writeData(items:[Product]){
         do{
             let data = try JSONEncoder().encode(items)
@@ -37,7 +38,5 @@ class FileAdapter{
         }catch{
             print(error.localizedDescription)
         }
-        
     }
-    
 }
